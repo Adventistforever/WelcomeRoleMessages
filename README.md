@@ -2,6 +2,7 @@
  A Discord bot that sends custom messages to members when a monitored role has been granted.
  This bot was requested by a Redditor and fulfilled to their requirements.
 
+[Heroku Branch - instructions](https://github.com/dlchamp/CustomDMRoleMessages/tree/heroku)
 
  ### Discord Bot Token and Server Invitation
 
