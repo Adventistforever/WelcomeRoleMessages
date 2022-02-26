@@ -95,7 +95,7 @@ Links - [The disply link text](https://some-link-to-somewhere.com) | [The displa
 **Emojis**:
 
 Native supported emojies can be added by using the :emoji_name: syntax | :thumbsup: would show the thumbsup emoji
-Custom guild emojies can also be used with the <:emoji_name:emoji_id> syntax | Find it easily by sending the emoji to a channel, but placing a \ in front of the icon before sending.  The resulting message can be copy/pasted into this txt file
+Custom guild emojies can also be used with the <:emoji_name:emoji_id> syntax | Find it easily by sending the emoji to a channel, but placing a \ in front of the icon before sending.
 Custom guild animated emojies can also be used with the <a:emoji_name:emoji_id> syntax | Find it easily using the same method for custom guild emojies
 
 ```
