@@ -1,5 +1,4 @@
 {
-    "bot_token": "replace-with-bot-token",
     "error_send_target" : replace-with-target-channel/member-id,
     "roles": [list, of, role IDs, to, monitor]
 }

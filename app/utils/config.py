@@ -8,11 +8,6 @@ def fetch_config():
         return jload(f)
 
 
-# fetch the bot token from config.json - return the bot token string
-def fetch_token():
-    config = fetch_config()
-    return config['bot_token']
-
 
 # fetch roles from json - return list of role IDs
 def fetch_role_ids():

@@ -1,5 +1,5 @@
 # imported from native python modules
-from os import listdir
+from os import listdir, getenv
 
 # imported from custom modules in utils
 from utils import config
@@ -29,4 +29,4 @@ async def on_ready():
 
 
 # run the bot using the secret token
-bot.run(config.fetch_token())
+bot.run(getenv('bot_token'))
