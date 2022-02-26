@@ -2,8 +2,10 @@
  A Discord bot that sends custom messages to members when a monitored role has been granted.
  This bot was requested by a Redditor and fulfilled to their requirements.
 
+## HEROKU SPECIFIC INSTRUCTIONS
 
- ### Discord Bot Token and Server Invitation
+
+### Discord Bot Token and Server Invitation
 
 1. Login to Discord web - https://discord.com
 2. Navigate to Discord Developer Portal - https://discord.com/developers/applications
@@ -13,7 +15,7 @@
 6. Go to Bot tab and click *Add Bot*
 7. Enable **SERVER MEMBERS INTENT**
 8. Add a bot image
-9. Copy the token and paste it into the config.json located in the /app
+9. Copy the token and
 10. Navigate to OAuth2 Tab > URL Generator
 11. Check **BOT** under the SCOPES section
 12. In the BOT PERMISSIONS section, check the following:
@@ -24,13 +26,29 @@
 13. Copy the GENERATED URL link and paste it into your browser or in a discord message. Click the link to invite the bot
 
 
-
 ### Getting Started
+**Github**
+1. Login to github
+2. Fork this heroku branch of the repo
+3. Configure the messages and json file right in github if you wish
+4. Make the repo private to prevent public access to your files, messages, IDs, etc.
 
-#### Prequisites
+**Heroku**
+1. Login to Heroku - https://id.heroku.com/login
+2. Create a new app - give it a name
+3. Settings > Config vars - Reveal Config Vars
+4. Replace KEY with bot_token and VALUE with your bot token from above (step 9)
+5. Add and head back to Deploy
+6. Deployment Method - Connnect with Github
+7. Add the forked repo to your Heroku account
+8. Select the Heroku branch to deploy
+9. Deploy the branch
+10. Navigate to Resources tab - Dynos
+11. Click Edit icon - enable the worker
+12. Save
+13. Top right corner - More - View Logs
+14. Should see the bot load and print the message line that the bot is online and ready.
 
-1. Install Python 3.9+
-2. install dependancies - `pip install -r requirements.txt`
 
 
 ### Configuring the bot
