@@ -1,5 +1,5 @@
 from json import load as jload, dump as jdump
-from os import listdir
+from os.path import exists
 
 
 # load config.json into dict
@@ -32,17 +32,28 @@ def fetch_role_ids():
 
 def fetch_error_msg_target():
     config = fetch_config()
-    try:
-        target = int(config['error_send_target'])
-        return target
-    except ValueError:
-        return 'ValueError'
+    target = config['error_send_target']
+
+    if not target is None:
+        try:
+            target = int(config['error_send_target'])
+            return target
+        except ValueError:
+            return 'ValueError'
+    else:
+        return None
 
 
 def fetch_dm_msg(role_id: str):
+    path = None
     for filename in listdir('./data'):
         if filename.endswith(f'{role_id}.txt'):
-            with open(f'./data/{filename}') as f:
+            path = f'./data/{filename}'
+
+        if not path is None:
+            with open(path) as f:
                 return f.read()
+
         else:
             return 'Error'
+
