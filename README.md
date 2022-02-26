@@ -17,9 +17,10 @@
 10. Navigate to OAuth2 Tab > URL Generator
 11. Check **BOT** under the SCOPES section
 12. In the BOT PERMISSIONS section, check the following:
-    a. Read Messages/View Channels
-    b. Send Messages
-    c. Use External Emojis
+    - Read Messages/View Channels
+    - Send Messages
+    - Use External Emojis
+
 13. Copy the GENERATED URL link and paste it into your browser or in a discord message. Click the link to invite the bot
 
 
