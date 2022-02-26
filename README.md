@@ -54,8 +54,7 @@
 ### Configuring the bot
 
 1. Open config.json in your favorite editor (located in /app)
-2. Paste the token you copied above (step 9) into the config.json
-3. Add *ONE** target channel or member ID for messages to be sent when a DM cannot be sent to the member (privacy settings) - default `null`
+2. Add *ONE** target channel or member ID for messages to be sent when a DM cannot be sent to the member (privacy settings) - default `null`
 3. Add your comma seperated list of IDs for the roles you wish to monitor
 4. Open the /app/data directory and view the sample file included as it contains specific instructions
 5. Add your custom messages with the correct naming convetion
@@ -68,7 +67,6 @@
 
 ```json
 {
-    "bot_token": "some-bot-token",
     "error_send_target" : null,
     "roles": [936910278942154782]
 }
@@ -78,7 +76,6 @@
 
 ```json
 {
-    "bot_token": "some-bot-token",
     "error_send_target" : 173105961442082816,
     "roles": [936910278942154782, 947168472985661490]
 }
