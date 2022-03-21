@@ -50,10 +50,9 @@ def fetch_dm_msg(role_id: str):
         if filename.endswith(f'{role_id}.txt'):
             path = f'./data/{filename}'
 
-        if not path is None:
+            if not path is None:
             with open(path) as f:
                 return f.read()
 
-        else:
-            return 'Error'
+    return 'Error'
 
