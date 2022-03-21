@@ -1,5 +1,6 @@
 from json import load as jload, dump as jdump
 from os.path import exists
+from os import listdir
 
 
 # load config.json into dict
@@ -42,13 +43,14 @@ def fetch_error_msg_target():
 def fetch_dm_msg(role_id: str):
     path = None
     for filename in listdir('./data'):
+        print(filename)
         if filename.endswith(f'{role_id}.txt'):
             path = f'./data/{filename}'
 
-        if not path is None:
-            with open(path) as f:
-                return f.read()
+            if not path is None:
+                with open(path) as f:
+                    return f.read()
 
-        else:
-            return 'Error'
+    return 'Error'
+
 
