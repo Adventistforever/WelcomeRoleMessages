@@ -1,4 +1,0 @@
-{
-    "error_send_target" : replace-with-target-channel/member-id or null,
-    "roles": [list, of, role IDs, to, monitor]
-}

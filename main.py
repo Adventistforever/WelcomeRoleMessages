@@ -2,7 +2,7 @@
 from os import listdir, getenv
 
 # imported from custom modules in utils
-from utils import config
+from utils import from_config
 
 # third party import - disnake (discord python library)
 from disnake import Intents
@@ -28,5 +28,22 @@ async def on_ready():
     print(f"{bot.user} is alive and listening for Discord events.")
 
 
-# run the bot using the secret token
-bot.run(getenv('bot_token'))
+
+if __name__ == "__main__":
+    # check the configs, then run the bot
+    if from_config.check_config():
+
+        if from_config.check_dm_messages():
+
+            if from_config.check_channel_messages():
+
+                print()
+                print('Confg is valid and message files are present!')
+                print('---------------------------------------------')
+                bot.run(getenv('bot_token'))
+
+            else:
+                print('Channel Message File Error: You are missing the .txt file in /data/channels/ for the monitored role in config.py')
+        else:
+            print('DM Message File Error: You are missing one or more .txt files in /data/dm/ for the monitored roles in config.py')
+
