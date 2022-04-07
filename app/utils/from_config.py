@@ -2,6 +2,8 @@ import config
 from os import listdir, path
 
 
+
+
 def load_error_send_target():
     if config.ERROR_SEND_TARGET is not None:
         try:
@@ -58,26 +60,11 @@ def load_channel_msg():
         return f.read()
 
 
-def check_config() -> bool:
-    return (
-        all(
-            (
-                load_error_send_target(),
-                load_dm_roles(),
-                load_channel_roles(),
-                load_send_channel(),
-            )
-        )
-        != "Error"
-    )
+def load_auto_remove_role():
+    if config.AUTO_REMOVE_ROLE is not None:
+        try:
+            return int(config.AUTO_REMOVE_ROLE)
+        except (ValueError, TypeError):
+            print('Error in config.py - Please check that AUTO_REMOVE_ROLE value is valid')
+            return 'Error'
 
-
-def check_dm_messages() -> bool:
-    role_ids = load_dm_roles()
-
-    files = [file for file in listdir("./data/dm") if not file.startswith("sample")]
-    return all(any(str(id) in filename for filename in files) for id in role_ids)
-
-
-def check_channel_messages() -> bool:
-    return "message.txt" in listdir("./data/channel")
