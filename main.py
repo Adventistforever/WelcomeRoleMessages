@@ -73,6 +73,5 @@ def member_json():
 if __name__ == "__main__":
     # run pre_run_check, if pass run bot
     member_json()
-    bot.run('ODc2MTY1MjIyMzU0NzgwMjMw.YRgGcw.s1pfeLWMZB0RfjWPqotXDi1_fYI')
-    # load_dotenv()
-    # bot.run(getenv("TOKEN"))
+    load_dotenv()
+    bot.run(getenv("TOKEN"))
