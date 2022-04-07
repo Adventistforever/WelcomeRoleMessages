@@ -47,7 +47,7 @@ class RoleMessage(commands.Cog):
             )
             return
 
-        # if the role new is a channel role, send the message to the target channel
+        # if the new role is a channel role, send the message to the target channel
         roles = [
             role
             for role in ch_roles
