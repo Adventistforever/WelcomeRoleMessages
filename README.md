@@ -84,7 +84,7 @@ Custom guild animated emojies can also be used with the <a:emoji_name:emoji_id> 
 **Directory layout**
 * /app/data/channel/message.txt (this name must remain message.txt, but you can edit the contents)
 
-'''
+```
 This is a sample message - You may use this file for reference. This file is only used to send a custom message to the configured channel when any of the configured roles in config.py are added to a member.  The contents of this file are sent as a normal, non-rich Discord message and will only be able to utilize Discord's supported markdown.
 
 DO NOT CHANGE THE NAME OF THIS FILE
@@ -110,4 +110,4 @@ Custom guild animated emojies can also be used with the <a:emoji_name:emoji_id> 
 {member} will mention the member that was given the role.  Use this anywhere in the body of this message to mention that member.
 {role} will mention the role that the member was given.  Use this anywhere in the body of this message to mention the role
 
-'''
+```
