@@ -20,7 +20,7 @@ Custom guild animated emojies can also be used with the <a:emoji_name:emoji_id> 
 
 
 **mentioning members or roles**
-{member} will mention the member that was given the role.  Use this anywhere in the body of this message tomention that member.
+{member} will mention the member that was given the role.  Use this anywhere in the body of this message to mention that member.
 {role} will mention the role that the member was given.  Use this anywhere in the body of this message to mention the role
 
 

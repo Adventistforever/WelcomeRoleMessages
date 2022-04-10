@@ -1,6 +1,6 @@
-This is a sample message - You may use this file for reference. Make each role's custom messages are stored in this same /data/dm directory with the corect filename.  The contents of the files in this /dm directory are used as the embed body.
+This is a sample message - You may use this file for reference. Make sure each role's custom messages are stored in this same /data/dm directory with the corect filename.  The contents of this message would be sent as the body of an embed to the DM of the member.
 
-The file name must include the role_id  - as the name of this file illustrates. (without backticks)
+The file name must include the role_id
 
 **Quick reference**:
 The markdown syntax supported by Discord applies to this txt content as well since it's rendered by discord before being sent to the channel.

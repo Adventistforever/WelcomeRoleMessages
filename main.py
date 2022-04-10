@@ -1,77 +1,81 @@
-# imported from native python modules
+# Built-in libraries
 from datetime import time, datetime
 from os import listdir, getenv, path
 from json import dump
 
-# imported from custom modules in utils
-from utils import from_config, db
-
-# third party import - disnake (discord python library)
+# Installed libraries
 from disnake import Intents
 from disnake.ext import commands, tasks
-from dotenv import load_dotenv
 
+# Local utilities
+import config
+from utils import db
 
-# Instantiate bot and declare intents
+# Declare Discord permission intents and initialize bot
 intents = Intents.default()
 intents.members = True
-
 bot = commands.Bot(intents=intents)
 
 
-# load cog extenstions
-for filename in listdir("./cogs"):
-    if filename.endswith(".py"):
-        bot.load_extension(f"cogs.{filename[:-3]}")
-
-
-# simple on ready event -runs only once when bot connects to discord
 @bot.listen()
 async def on_ready():
-
-    await bot.wait_until_ready()
-    auto_remove_role.start()
-    print(f"{bot.user} is alive and listening for Discord events.")
+    print(f"{bot.user} is connected to Discord and listening for events.")
 
 
-
-@tasks.loop(time=time(0,0))
+@tasks.loop(time=time(0, 0))
 async def auto_remove_role():
-    '''
-    iterate bot guilds, and find the role that matches configured role, then remove that role from
-    the member if the current date is less than timestampe'''
-    auto_remove_role_id = from_config.load_auto_remove_role()
-    today_timestamp = datetime.timestamp(datetime.now())
+    """
+    Iterate bot guilds and find the auto_remove_role by the ID assigned in config
+    Remove that role from any members in data/members.json where datetime timestamp
+    has been passed
+    """
+    await bot.wait_until_ready()
+    auto_remove_role_id = int(config.AUTO_REMOVE_ROLE)
+    now_timestamp = datetime.timestamp(datetime.utcnow())
 
     for guild in bot.guilds:
-        auto_remove_role = guild.get_role(int(auto_remove_role_id))
+        auto_remove_role = guild.get_role(auto_remove_role_id)
 
-        if not auto_remove_role is None:
+        if auto_remove_role:
 
-            # load the member and timestamp for comparison
-            data = db.load_members_json()
-            members = data['members']
+            # load the member and timestamp from members.json
+            data = db.load_members()
+            members = data["members"]
 
-            for member in members:
-                for k,v in member.items():
-                    if v < today_timestamp:
-                        get_member = guild.get_member(int(k))
-                        if auto_remove_role in get_member.roles:
-                            await get_member.remove_roles(auto_remove_role)
+            # iterate members from json
+            for index, member in enumerate(members):
+                for member_id, timestamp in member.items():
+
+                    # if json timestampe is older than now_timestamp, get member and remove role
+                    if timestamp < now_timestamp:
+                        guild_member = guild.get_member(int(member_id))
+                        if guild_member:
+                            if auto_remove_role in guild_member.roles:
+                                # remove the role and remove the member_id, timestamp from json
+                                await guild_member.remove_roles(auto_remove_role)
+                                members.pop(index)
+
+            # update members.json with new data
+            db.update_members(data)
 
 
+def load_cogs(bot):
+    """iterate /cogs and load .py as bot extensions"""
+    for filename in listdir("./cogs"):
+        if filename.endswith(".py"):
+            bot.load_extension(f"cogs.{filename[:-3]}")
 
 
-def member_json():
-    '''check if member.json exists, if not create it'''
-    if not path.exists('./data/members.json'):
-        with open('./data/members.json','w') as f:
-            dump({"members": []}, f, indent=4)
-
+def check_members_json():
+    """If members.json does not exist, create it"""
+    if not path.exists("./data/members.json"):
+        with open("./data/members.json", "w") as f:
+            dump({"members": []}, f)
 
 
 if __name__ == "__main__":
-    # run pre_run_check, if pass run bot
-    member_json()
-    load_dotenv()
+    check_members_json()
+    load_cogs(bot)
+    auto_remove_role.start()
     bot.run(getenv("TOKEN"))
+
