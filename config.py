@@ -4,7 +4,7 @@ variable just set it to `None` (no backticks)
 """
 
 #  can be a member ID, channel ID
-ERROR_SEND_TARGET =
+ERROR_SEND_TARGET = 
 
 # should be a comma separated list of role IDs you
 # wish to monitor for custom DM messages
@@ -19,7 +19,7 @@ SEND_CHANNEL =
 
 # the ID for the role you wish to auto remove when one of the
 # roles in ROLE_FOR_DM is assigned to the member
-AUTO_REMOVE_ROLE =
+AUTO_REMOVE_ROLE = 
 
 # the IDs for the roles you want to check for to start time for AUTO_REMOVE_ROLE
 AUTO_REMOVE_ROLE_MONITOR = []
