@@ -28,7 +28,7 @@ AUTO_REMOVE_ROLE_MONITOR = []
 """
 message config functions - DO NOT ALTER
 """
-from os import path, listdir
+from os import listdir
 
 
 def load_dm_msg(role_id):
