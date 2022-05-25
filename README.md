@@ -61,35 +61,16 @@
 6. Bot is now ready to run - `python main.py`
 
 
-### Config Examples
-
-**No target member/channel for DM error message, 1 monitored role**
-
-```json
-{
-    "error_send_target" : null,
-    "roles": [936910278942154782]
-}
-```
-
-**Target member/channel for DM error message, 2 monitored roles
-
-```json
-{
-    "error_send_target" : 173105961442082816,
-    "roles": [936910278942154782, 947168472985661490]
-}
-```
-
-
-### Specific instructions for custom messages
 
 **Directory layout**
 
 * /app/data
+ * /dm
   - sample-01234567890123.txt
   - Active Member-936910278942154782.txt
   - Test Role-947168472985661490.txt
+  * /channel
+    - message.txt
 
 
 ```
