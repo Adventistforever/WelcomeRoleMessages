@@ -1,10 +1,10 @@
 """
 Configure your bot using the variables below:  If you do not wish to use a specific
-variable just set it to `None` (no backticks)
+feature leave set to None or empty list []
 """
 
 #  can be a member ID, channel ID
-ERROR_SEND_TARGET =
+ERROR_SEND_TARGET = None
 
 # should be a comma separated list of role IDs you
 # wish to monitor for custom DM messages
@@ -15,11 +15,11 @@ ROLES_FOR_DM = []
 ROLE_FOR_CHANNEL_MSG = []
 
 # the ID for the channel you wish the ROLE_FOR_CHANNEL_MSG to be sent to.
-SEND_CHANNEL = 
+SEND_CHANNEL = None
 
 # the ID for the role you wish to auto remove when one of the
 # roles in ROLE_FOR_DM is assigned to the member
-AUTO_REMOVE_ROLE =
+AUTO_REMOVE_ROLE = None
 
 # the IDs for the roles you want to check for to start time for AUTO_REMOVE_ROLE
 AUTO_REMOVE_ROLE_MONITOR = []
@@ -28,7 +28,7 @@ AUTO_REMOVE_ROLE_MONITOR = []
 """
 message config functions - DO NOT ALTER
 """
-from os import path, listdir
+from os import listdir, path
 
 
 def load_dm_msg(role_id):
