@@ -1,14 +1,10 @@
-# Built-in libraries
-from datetime import time, datetime
-from os import listdir, getenv, path
+from datetime import datetime, time
 from json import dump
+from os import getenv, listdir, path
 
-# Installed libraries
+import config
 from disnake import Intents
 from disnake.ext import commands, tasks
-
-# Local utilities
-import config
 from utils import db
 
 # Declare Discord permission intents and initialize bot
@@ -32,6 +28,9 @@ async def auto_remove_role():
     await bot.wait_until_ready()
     auto_remove_role_id = int(config.AUTO_REMOVE_ROLE)
     now_timestamp = datetime.timestamp(datetime.utcnow())
+
+    if auto_remove_role_id is None:
+        return
 
     for guild in bot.guilds:
         auto_remove_role = guild.get_role(auto_remove_role_id)
@@ -78,4 +77,3 @@ if __name__ == "__main__":
     load_cogs(bot)
     auto_remove_role.start()
     bot.run(getenv("TOKEN"))
-
