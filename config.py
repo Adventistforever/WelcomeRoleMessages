@@ -1,10 +1,10 @@
 """
 Configure your bot using the variables below:  If you do not wish to use a specific
-variable just leave it set to None or an empty list
-"""
+
 
 #  can be a member ID, channel ID
 ERROR_SEND_TARGET = 960109774370910238
+
 
 # should be a comma separated list of role IDs you
 # wish to monitor for custom DM messages
@@ -28,7 +28,8 @@ AUTO_REMOVE_ROLE_MONITOR = []
 """
 message config functions - DO NOT ALTER
 """
-from os import listdir
+
+from os import listdir, path
 
 
 def load_dm_msg(role_id):

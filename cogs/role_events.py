@@ -1,10 +1,10 @@
 from datetime import datetime, timedelta
 
 import config
-from utils import db
 
 from disnake import Embed, errors
 from disnake.ext import commands
+from utils import db
 
 
 class RoleEvents(commands.Cog):
@@ -37,8 +37,9 @@ class RoleEvents(commands.Cog):
             else None
         )
         roles_for_msg = (
-            [guild.get_role(int(role_id)) for role_id in config.ROLE_FOR_CHANNEL_MSG]
-            if not config.ROLE_FOR_CHANNEL_MSG is None
+            [guild.get_role(int(role_id))
+             for role_id in config.ROLE_FOR_CHANNEL_MSG]
+          if not config.ROLE_FOR_CHANNEL_MSG is None
             else None
         )
         send_channel_for_roles = (
@@ -97,9 +98,11 @@ class RoleEvents(commands.Cog):
                     data = db.load_members()
                     members = data["members"]
                     member_id = str(member.id)
-                    future = datetime.timestamp(datetime.utcnow() + timedelta(days=7))
+                    future = datetime.timestamp(
+                        datetime.utcnow() + timedelta(days=7))
 
-                    member_ids = [[k for (k, v) in item.items()] for item in members]
+                    member_ids = [[k for (k, v) in item.items()]
+                                  for item in members]
                     if not member_id in member_ids:
                         members.append({member_id: future})
 
