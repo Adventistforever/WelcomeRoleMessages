@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 
 import config
+
 from disnake import Embed, errors
 from disnake.ext import commands
 from utils import db
@@ -38,7 +39,7 @@ class RoleEvents(commands.Cog):
         roles_for_msg = (
             [guild.get_role(int(role_id))
              for role_id in config.ROLE_FOR_CHANNEL_MSG]
-            if not config.ROLE_FOR_CHANNEL_MSG is None
+          if not config.ROLE_FOR_CHANNEL_MSG is None
             else None
         )
         send_channel_for_roles = (

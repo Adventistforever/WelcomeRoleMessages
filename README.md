@@ -53,24 +53,27 @@
 
 ### Configuring the bot
 
-1. Open config.json in your favorite editor (located in /app)
-2. Add *ONE** target channel or member ID for messages to be sent when a DM cannot be sent to the member (privacy settings) - default `null`
-3. Add your comma seperated list of IDs for the roles you wish to monitor
-4. Open the /app/data directory and view the sample file included as it contains specific instructions
+1. Open config.py in your favorite editor (located in /app)
+2. Put your token in the .env-sample and rename to .env
+3. Add your IDs for the various variables, notes included in config.py
+4. Open the /app/data/(dm/channel) directories and view the sample file included as it contains specific instructions
+
 5. Add your custom messages with the correct naming convetion
 6. Bot is now ready to run - `python main.py`
 
 
+### Specific instructions for custom messages
 
 **Directory layout**
 
-* /app/data
- * /dm
+* /app/data/dm
+
+
   - sample-01234567890123.txt
   - Active Member-936910278942154782.txt
   - Test Role-947168472985661490.txt
   * /channel
-    - message.txt
+    message.txt
 
 
 ```
@@ -97,3 +100,35 @@ Custom guild animated emojies can also be used with the <a:emoji_name:emoji_id> 
 ```
 
 
+### Specific instructions for custom Channel messages
+
+**Directory layout**
+* /app/data/channel/message.txt (this name must remain message.txt, but you can edit the contents)
+
+```
+This is a sample message - You may use this file for reference. This file is only used to send a custom message to the configured channel when any of the configured roles in config.py are added to a member.  The contents of this file are sent as a normal, non-rich Discord message and will only be able to utilize Discord's supported markdown.
+
+DO NOT CHANGE THE NAME OF THIS FILE
+
+**Quick reference**:
+The markdown syntax supported by Discord applies to this txt content as well since it's rendered by discord before being sent to the channel.
+Embed body text may include links (similar to Reddit)
+
+Italics - * *  | This is a *sample* sentence ("sample" would be italicized)
+Bold -  ** **  | This is a **sample** sentence ("sample" would be bold)
+Strikethrough - ~~ ~~ | This is a ~~sample~~ sentence ("sample" would have a strike through it's middle)
+
+
+
+**Emojis**:
+
+Native supported emojies can be added by using the :emoji_name: syntax | :thumbsup: would show the thumbsup emoji
+Custom guild emojies can also be used with the <:emoji_name:emoji_id> syntax | Find it easily by sending the emoji to a channel, but placing a \ in front of the icon before sending.  The resulting message can be copy/pasted into this txt file
+Custom guild animated emojies can also be used with the <a:emoji_name:emoji_id> syntax | Find it easily using the same method for custom guild emojies
+
+
+**mentioning members or roles**
+{member} will mention the member that was given the role.  Use this anywhere in the body of this message to mention that member.
+{role} will mention the role that the member was given.  Use this anywhere in the body of this message to mention the role
+
+```
