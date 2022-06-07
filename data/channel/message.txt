@@ -1,23 +1,2 @@
-This is a sample message.  DO NOT CHANGE THE NAME OF THIS FILE
-
-**Quick reference**:
-The markdown syntax supported by Discord applies to this txt content as well since it's rendered by discord before being sent to the channel.
-Embed body text may include links (similar to Reddit)
-
-Italics - * *  | This is a *sample* sentence ("sample" would be italicized)
-Bold -  ** **  | This is a **sample** sentence ("sample" would be bold)
-Strikethrough - ~~ ~~ | This is a ~~sample~~ sentence ("sample" would have a strike through it's middle)
-Links - [The disply link text](https://some-link-to-somewhere.com) | [The display link text] would appear as a clickable link directed to https://some-link-to-somewhere.com
-
-
-**Emojis**:
-
-Native supported emojies can be added by using the :emoji_name: syntax | :thumbsup: would show the thumbsup emoji
-Custom guild emojies can also be used with the <:emoji_name:emoji_id> syntax | Find it easily by sending the emoji to a channel, but placing a \ in front of the icon before sending.  The resulting message can be copy/pasted into this txt file
-Custom guild animated emojies can also be used with the <a:emoji_name:emoji_id> syntax | Find it easily using the same method for custom guild emojies
-
-
-
-**Mentioning members or role**
-To mention a member in your channel message, simply place `{member}` (no backticks) anywhere you wish to mention that user.
-To mention a role in your channel message, simply place `{role}` (no backticks) anywhere you wish to mention the new role.
+Welcome {member} to {role} !!!
+Have fun with us here <33 
