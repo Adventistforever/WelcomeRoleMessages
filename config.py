@@ -1,6 +1,6 @@
 """
 Configure your bot using the variables below:  If you do not wish to use a specific
-
+"""
 
 #  can be a member ID, channel ID
 ERROR_SEND_TARGET = 960109774370910238
